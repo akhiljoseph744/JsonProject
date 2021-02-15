@@ -18,6 +18,32 @@
 </form>
  <script src="script.js"></script>
   <script>
+  function getFormData(){
+    var name=$("name").val();
+    var email=$("email").val();
+    var password=$("password").val();
+    var jsonStrObj={name: name,
+                    email: email,
+                    password: password,
+    };
+    return JSON.stringify(jsonStrObj);
+    }
+  function createPUTRequest(connToken,jsonObj,dbName,relName){
+    var putRequest="{\n"
+                    +"\"token\":\""
+                    + connToken
+                    +"\","
+                    +"\"dbName\":\""
+                    +dbName
+                    +"\",\n"+"\"cmd\":\"PUT\",\n"
+                    +"\"rel\"+"\""
+                    +relName+"\","
+                    +"\"jsonStr\";\n"
+                    +jsonObj
+                    +"\n"
+                    +"}";
+    return putResquest;
+  }
   function saveForm()
     {
       var jsonStr=getFormData();
